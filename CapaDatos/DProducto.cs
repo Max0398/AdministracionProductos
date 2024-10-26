@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaEntidades;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -16,7 +17,7 @@ namespace CapaDatos
             try
             {
                 SqlDataReader leerfilas;
-                SqlCommand cmd = new SqlCommand("SP_ListarProductos", conexion);
+                SqlCommand cmd = new SqlCommand("SP_ListarProductosActivos", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 conexion.Open();
                 leerfilas = cmd.ExecuteReader();
@@ -33,6 +34,29 @@ namespace CapaDatos
 
         }
 
+        public void registrarProductos(Producto producto)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SP_RegistrarProducto", conexion);
+                cmd.CommandType= CommandType.StoredProcedure;
+                conexion.Open();
+                cmd.Parameters.AddWithValue("@Codigo",producto.Codigo);
+                cmd.Parameters.AddWithValue("@Nombre",producto.Nombre);
+                cmd.Parameters.AddWithValue("@Existencia",producto.Existencia);
+                cmd.Parameters.AddWithValue("@Estado",producto.Estado);
+                cmd.Parameters.AddWithValue("@Proveedor",producto.NombreProveedor);
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+
+            }
+            catch (Exception err)
+            {
+
+                Console.WriteLine($"Error al Guardar: {err}");
+            }
+            
+        }
 
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CapaDatos;
+using CapaEntidades;
 using System.Data;
 
 namespace CapaNegocio
@@ -10,6 +11,11 @@ namespace CapaNegocio
         public DataTable listadoProductos()
         {
             return dProducto.listadoProductos();
+        }
+
+        public void registrarProductos(Producto producto)
+        {
+            dProducto.registrarProductos(producto);
         }
     }
 }

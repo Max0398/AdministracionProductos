@@ -18,9 +18,9 @@ namespace CapaPresentacion
             ocultarColumnas();
         }
 
-       public void listarProductos()
+        public void listarProductos()
         {
-            dgvProductos.DataSource= nProducto.listadoProductos();
+            dgvProductos.DataSource = nProducto.listadoProductos();
         }
 
         public void ocultarColumnas()
@@ -55,11 +55,16 @@ namespace CapaPresentacion
                 {
                     return;
                 }
-
             }
-
         }
 
-        
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            FrmRegistroProducto fRegistroProducto = new FrmRegistroProducto();
+            fRegistroProducto.ShowDialog();
+            
+        }
+
+      
     }
 }

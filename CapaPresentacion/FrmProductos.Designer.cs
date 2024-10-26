@@ -33,9 +33,11 @@
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Opciones = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Titulo = new System.Windows.Forms.Label();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.lblListadoProducto = new System.Windows.Forms.Label();
-            this.Titulo = new System.Windows.Forms.Label();
+            this.btnAgregarProducto = new System.Windows.Forms.Button();
+            this.btnRefrescarTabla = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -88,6 +90,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Opciones de Busqueda";
             // 
+            // Titulo
+            // 
+            this.Titulo.AutoSize = true;
+            this.Titulo.Location = new System.Drawing.Point(6, 41);
+            this.Titulo.Name = "Titulo";
+            this.Titulo.Size = new System.Drawing.Size(86, 26);
+            this.Titulo.TabIndex = 1;
+            this.Titulo.Text = "Buscar";
+            // 
             // txtBusqueda
             // 
             this.txtBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -106,24 +117,37 @@
             this.lblListadoProducto.TabIndex = 2;
             this.lblListadoProducto.Text = "Listado Productos";
             // 
-            // Titulo
+            // btnAgregarProducto
             // 
-            this.Titulo.AutoSize = true;
-            this.Titulo.Location = new System.Drawing.Point(6, 41);
-            this.Titulo.Name = "Titulo";
-            this.Titulo.Size = new System.Drawing.Size(86, 26);
-            this.Titulo.TabIndex = 1;
-            this.Titulo.Text = "Buscar";
+            this.btnAgregarProducto.Location = new System.Drawing.Point(1004, 45);
+            this.btnAgregarProducto.Name = "btnAgregarProducto";
+            this.btnAgregarProducto.Size = new System.Drawing.Size(207, 26);
+            this.btnAgregarProducto.TabIndex = 3;
+            this.btnAgregarProducto.Text = "Agregar Producto";
+            this.btnAgregarProducto.UseVisualStyleBackColor = true;
+            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
+            // 
+            // btnRefrescarTabla
+            // 
+            this.btnRefrescarTabla.Location = new System.Drawing.Point(816, 175);
+            this.btnRefrescarTabla.Name = "btnRefrescarTabla";
+            this.btnRefrescarTabla.Size = new System.Drawing.Size(38, 23);
+            this.btnRefrescarTabla.TabIndex = 4;
+            this.btnRefrescarTabla.Text = "R";
+            this.btnRefrescarTabla.UseVisualStyleBackColor = true;
             // 
             // FrmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1252, 547);
+            this.Controls.Add(this.btnRefrescarTabla);
+            this.Controls.Add(this.btnAgregarProducto);
             this.Controls.Add(this.lblListadoProducto);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvProductos);
             this.Name = "FrmProductos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -143,6 +167,8 @@
         private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.Label lblListadoProducto;
         private System.Windows.Forms.Label Titulo;
+        private System.Windows.Forms.Button btnAgregarProducto;
+        private System.Windows.Forms.Button btnRefrescarTabla;
     }
 }
 

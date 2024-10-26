@@ -8,7 +8,7 @@ namespace CapaEntidades
 {
     public class Producto
     {
-        public int Codigo { get; set; }
+        public String Codigo { get; set; }
         public string Nombre { get; set; }
         public int Existencia { get; set; }
         public bool Estado { get; set; } // true para activo, false para inactivo
