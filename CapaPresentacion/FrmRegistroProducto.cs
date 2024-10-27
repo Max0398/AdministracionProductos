@@ -10,9 +10,8 @@ namespace CapaPresentacion
 
         Producto producto = new Producto();
         NProducto nProducto = new NProducto();
-        
-        bool editar = false;
-        private string idProducto;
+        public bool editar = false;
+        private String idProducto;
 
         public FrmRegistroProducto()
         {
@@ -48,9 +47,42 @@ namespace CapaPresentacion
 
                 MessageBox.Show("Se Registro el Producto");
                 limpiar();
-                
-                
-                
+
+            
+            }
+            if (editar)
+            {
+
+
+                try
+                {
+                    idProducto=txtIdProducto.Text;
+                    producto.IdProducto=Convert.ToInt32(idProducto);
+                    producto.Codigo = txtCodigo.Text;
+                    producto.Nombre = txtNombre.Text;
+                    producto.NombreProveedor = txtProveedor.Text;
+                    producto.Existencia = Convert.ToInt32(txtExistencias.Text);
+                    if (cbxEstado.Text == "Activo")
+                    {
+                        producto.Estado = true;
+                    }
+                    else if (cbxEstado.Text == "Inactivo")
+                    {
+                        producto.Estado = false;
+                    }
+                    nProducto.editarProducto(producto);
+             
+
+                }
+                catch (Exception err)
+                {
+
+                    MessageBox.Show($"Error al Editar el Producto {err}");
+                }
+
+                MessageBox.Show("Se Edito el Producto");
+                limpiar();
+
             }
         }
 

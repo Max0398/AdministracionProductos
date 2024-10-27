@@ -56,9 +56,9 @@ namespace CapaDatos
 
                     conexion.Open();
 
-                    // Agregar parámetros
+                    
                     cmd.Parameters.AddWithValue("@NombreUsuario", usuario.NombreUsuario);
-                    cmd.Parameters.AddWithValue("@Contrasenia", usuario.Contrasenia); // Considera aplicar hash aquí
+                    cmd.Parameters.AddWithValue("@Contrasenia", usuario.Contrasenia); // Se agregara el hash en la base de datos de forma Automatica
                     cmd.Parameters.AddWithValue("@Nombre", usuario.Nombre);
                     cmd.Parameters.AddWithValue("@Apellido", usuario.Apellido);
                     cmd.Parameters.AddWithValue("@Correo", usuario.Correo);
@@ -79,6 +79,7 @@ namespace CapaDatos
             }
         }
 
+     
 
 
     }

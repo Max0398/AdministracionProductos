@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProductos));
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Opciones = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbxCargaProductoInactivo = new System.Windows.Forms.CheckBox();
             this.Titulo = new System.Windows.Forms.Label();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.lblListadoProducto = new System.Windows.Forms.Label();
             this.btnAgregarProducto = new System.Windows.Forms.Button();
-            this.btnRefrescarTabla = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -58,28 +59,36 @@
             this.dgvProductos.RowHeadersVisible = false;
             this.dgvProductos.Size = new System.Drawing.Size(842, 331);
             this.dgvProductos.TabIndex = 0;
+            this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
             this.dgvProductos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProductos_CellFormatting);
             // 
             // Editar
             // 
             this.Editar.HeaderText = "Editar";
+            this.Editar.Image = ((System.Drawing.Image)(resources.GetObject("Editar.Image")));
+            this.Editar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Editar.Name = "Editar";
             this.Editar.ReadOnly = true;
             // 
             // Eliminar
             // 
             this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
+            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.ReadOnly = true;
             // 
             // Opciones
             // 
             this.Opciones.HeaderText = "Opciones";
+            this.Opciones.Image = global::CapaPresentacion.Properties.Resources.opcion_de_lista;
+            this.Opciones.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Opciones.Name = "Opciones";
             this.Opciones.ReadOnly = true;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbxCargaProductoInactivo);
             this.groupBox1.Controls.Add(this.Titulo);
             this.groupBox1.Controls.Add(this.txtBusqueda);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -89,6 +98,18 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Opciones de Busqueda";
+            // 
+            // cbxCargaProductoInactivo
+            // 
+            this.cbxCargaProductoInactivo.AutoSize = true;
+            this.cbxCargaProductoInactivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxCargaProductoInactivo.Location = new System.Drawing.Point(264, 83);
+            this.cbxCargaProductoInactivo.Name = "cbxCargaProductoInactivo";
+            this.cbxCargaProductoInactivo.Size = new System.Drawing.Size(245, 24);
+            this.cbxCargaProductoInactivo.TabIndex = 2;
+            this.cbxCargaProductoInactivo.Text = "Cargar Productos Inactivos";
+            this.cbxCargaProductoInactivo.UseVisualStyleBackColor = true;
+            this.cbxCargaProductoInactivo.CheckedChanged += new System.EventHandler(this.cbxCargaProductoInactivo_CheckedChanged);
             // 
             // Titulo
             // 
@@ -119,29 +140,21 @@
             // 
             // btnAgregarProducto
             // 
-            this.btnAgregarProducto.Location = new System.Drawing.Point(1004, 45);
+            this.btnAgregarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarProducto.Image")));
+            this.btnAgregarProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarProducto.Location = new System.Drawing.Point(981, 52);
             this.btnAgregarProducto.Name = "btnAgregarProducto";
-            this.btnAgregarProducto.Size = new System.Drawing.Size(207, 26);
+            this.btnAgregarProducto.Size = new System.Drawing.Size(158, 52);
             this.btnAgregarProducto.TabIndex = 3;
             this.btnAgregarProducto.Text = "Agregar Producto";
             this.btnAgregarProducto.UseVisualStyleBackColor = true;
             this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
-            // 
-            // btnRefrescarTabla
-            // 
-            this.btnRefrescarTabla.Location = new System.Drawing.Point(816, 175);
-            this.btnRefrescarTabla.Name = "btnRefrescarTabla";
-            this.btnRefrescarTabla.Size = new System.Drawing.Size(38, 23);
-            this.btnRefrescarTabla.TabIndex = 4;
-            this.btnRefrescarTabla.Text = "R";
-            this.btnRefrescarTabla.UseVisualStyleBackColor = true;
             // 
             // FrmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1252, 547);
-            this.Controls.Add(this.btnRefrescarTabla);
             this.Controls.Add(this.btnAgregarProducto);
             this.Controls.Add(this.lblListadoProducto);
             this.Controls.Add(this.groupBox1);
@@ -160,15 +173,15 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvProductos;
-        private System.Windows.Forms.DataGridViewImageColumn Editar;
-        private System.Windows.Forms.DataGridViewImageColumn Eliminar;
-        private System.Windows.Forms.DataGridViewImageColumn Opciones;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.Label lblListadoProducto;
         private System.Windows.Forms.Label Titulo;
         private System.Windows.Forms.Button btnAgregarProducto;
-        private System.Windows.Forms.Button btnRefrescarTabla;
+        private System.Windows.Forms.DataGridViewImageColumn Editar;
+        private System.Windows.Forms.DataGridViewImageColumn Eliminar;
+        private System.Windows.Forms.DataGridViewImageColumn Opciones;
+        private System.Windows.Forms.CheckBox cbxCargaProductoInactivo;
     }
 }
 

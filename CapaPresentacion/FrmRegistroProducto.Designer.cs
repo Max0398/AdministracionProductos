@@ -96,7 +96,6 @@
             this.cbxEstado.Size = new System.Drawing.Size(177, 21);
             this.cbxEstado.TabIndex = 10;
             this.cbxEstado.Text = "Activo";
-            this.cbxEstado.ValueMember = "Activo";
             // 
             // label5
             // 
@@ -204,17 +203,17 @@
         #endregion
 
         private System.Windows.Forms.Panel PanelRegistro;
-        private System.Windows.Forms.TextBox txtExistencias;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtCodigo;
-        private System.Windows.Forms.TextBox txtProveedor;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbxEstado;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.TextBox txtIdProducto;
+        public System.Windows.Forms.TextBox txtExistencias;
+        public System.Windows.Forms.TextBox txtNombre;
+        public System.Windows.Forms.TextBox txtCodigo;
+        public System.Windows.Forms.TextBox txtProveedor;
+        public System.Windows.Forms.ComboBox cbxEstado;
+        public System.Windows.Forms.TextBox txtIdProducto;
     }
 }

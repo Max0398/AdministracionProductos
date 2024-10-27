@@ -12,10 +12,24 @@ namespace CapaNegocio
         {
             return dProducto.listadoProductos();
         }
+        public DataTable listadoProductosInactivos()
+        {
+            return dProducto.listadoProductosInactivos();
+        }
 
         public void registrarProductos(Producto producto)
         {
             dProducto.registrarProductos(producto);
+        }
+
+        public void editarProducto(Producto producto)
+        {
+            dProducto.editarProducto(producto);
+        }
+
+        public void elimacionLogicaProducto(int idProducto)
+        {
+            dProducto.eliminacionLogicaProducto(idProducto);
         }
     }
 }
