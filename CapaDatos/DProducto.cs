@@ -8,10 +8,33 @@ namespace CapaDatos
 {
     public class DProducto
     {
-
+        //cadena de conexion 
         SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["Conexion"].ConnectionString);
 
+        //Procedimientos almacenado para tratar la informacion de la producto con los formularios
         public DataTable listadoProductos()
+        {
+            DataTable tabla = new DataTable();
+            try
+            {
+                SqlDataReader leerfilas;
+                SqlCommand cmd = new SqlCommand("SP_ListarProductos", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                conexion.Open();
+                leerfilas = cmd.ExecuteReader();
+                tabla.Load(leerfilas);
+                leerfilas.Close();
+                conexion.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error: {e.Message}");
+            }
+         
+            return tabla;
+
+        }
+        public DataTable listadoProductosActivos()
         {
             DataTable tabla = new DataTable();
             try
@@ -29,7 +52,7 @@ namespace CapaDatos
             {
                 Console.WriteLine($"Error: {e.Message}");
             }
-         
+
             return tabla;
 
         }
@@ -55,7 +78,29 @@ namespace CapaDatos
             return tabla;
 
         }
+        public DataTable filtroNombreCodigo(string buscar)
+        {
+            DataTable tabla = new DataTable();
+            try
+            {
+                SqlDataReader leerfilas;
+                SqlCommand cmd = new SqlCommand("SP_BuscarProducto", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Busqueda",buscar);
+                conexion.Open();
+                leerfilas = cmd.ExecuteReader();
+                tabla.Load(leerfilas);
+                leerfilas.Close();
+                conexion.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error: {e.Message}");
+            }
 
+            return tabla;
+
+        }
         public void registrarProductos(Producto producto)
         {
             try
@@ -79,7 +124,6 @@ namespace CapaDatos
             }
             
         }
-
         public void editarProducto(Producto producto)
         {
             try
@@ -103,7 +147,6 @@ namespace CapaDatos
                 Console.WriteLine($"Error al Editar el Producto: {err}");
             }
         }
-
         public void eliminacionLogicaProducto(int idProducto)
         {
             try

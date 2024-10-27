@@ -8,9 +8,9 @@ namespace CapaEntidades
 {
     public class Opcion
     {
-        public int Id { get; set; }
+        public int OpcionId { get; set; }
         public string NombreOpcion { get; set; }
-        public int ProductoId { get; set; } // Relación con Producto
-        public bool Estado { get; set; } //
+        public int ProductoId { get; set; }
+        public bool Estado { get; set; }
     }
 }

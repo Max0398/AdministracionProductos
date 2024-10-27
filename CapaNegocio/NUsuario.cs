@@ -16,5 +16,10 @@ namespace CapaNegocio
         {
             dUsuario.registroUsuario(usuario);
         }
+
+        public bool verificarExisteUsuario(string usuario)
+        {
+            return dUsuario.verificarUsuario(usuario);
+        }
     }
 }

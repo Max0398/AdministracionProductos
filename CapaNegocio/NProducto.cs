@@ -16,6 +16,10 @@ namespace CapaNegocio
         {
             return dProducto.listadoProductosInactivos();
         }
+        public DataTable listadoProductosActivos()
+        {
+            return dProducto.listadoProductosActivos();
+        }
 
         public void registrarProductos(Producto producto)
         {
@@ -30,6 +34,11 @@ namespace CapaNegocio
         public void elimacionLogicaProducto(int idProducto)
         {
             dProducto.eliminacionLogicaProducto(idProducto);
+        }
+
+        public DataTable filtroNombreCodigo(string buscar)
+        {
+           return dProducto.filtroNombreCodigo(buscar);
         }
     }
 }

@@ -18,9 +18,10 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
+        //Funcionalidad para guardar y editar el producto
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (editar ==false)
+            if (editar == false)
             {
                 try
                 {
@@ -48,16 +49,15 @@ namespace CapaPresentacion
                 MessageBox.Show("Se Registro el Producto");
                 limpiar();
 
-            
+
             }
+            //Si el estado es verdadero se editara el producto
             if (editar)
             {
-
-
                 try
                 {
-                    idProducto=txtIdProducto.Text;
-                    producto.IdProducto=Convert.ToInt32(idProducto);
+                    idProducto = txtIdProducto.Text;
+                    producto.IdProducto = Convert.ToInt32(idProducto);
                     producto.Codigo = txtCodigo.Text;
                     producto.Nombre = txtNombre.Text;
                     producto.NombreProveedor = txtProveedor.Text;
@@ -71,7 +71,6 @@ namespace CapaPresentacion
                         producto.Estado = false;
                     }
                     nProducto.editarProducto(producto);
-             
 
                 }
                 catch (Exception err)
@@ -86,16 +85,17 @@ namespace CapaPresentacion
             }
         }
 
+        //funcion limpiar para los textbox 
         public void limpiar()
         {
-            txtCodigo.Text=String.Empty;
-            txtExistencias.Text=String.Empty;
-            txtNombre.Text=String.Empty;
-            txtProveedor.Text=String.Empty;
+            txtCodigo.Text = String.Empty;
+            txtExistencias.Text = String.Empty;
+            txtNombre.Text = String.Empty;
+            txtProveedor.Text = String.Empty;
             cbxEstado.Text = "Activo";
         }
 
-        
+
 
     }
 }

@@ -79,8 +79,39 @@ namespace CapaDatos
             }
         }
 
-     
+        public bool verificarUsuario(string usuario)
+        {
+            bool esValido = false;
 
+            try
+            {
+                using (conexion)
+                {
+                    using (SqlCommand command = new SqlCommand("sp_VerificarUsuarioExiste", conexion))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@NombreUsuario", usuario);
+
+                        conexion.Open();
+                        int resultado = Convert.ToInt32(command.ExecuteScalar());
+                        esValido = resultado == 1;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error en la conexión: {ex.Message}");
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return esValido;
+        }
 
     }
 }
