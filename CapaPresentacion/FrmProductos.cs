@@ -200,7 +200,7 @@ namespace CapaPresentacion
             }
         }
 
-        //cargara el texton que se escribire y buscara elementos que coincidad como codigo o nombre
+        //cargara el texto que se escribay buscara elementos que coincidad como codigo o nombre
         private void txtBusqueda_TextChanged(object sender, EventArgs e)
         {
             var buscar = txtBusqueda.Text.Trim();
@@ -236,7 +236,7 @@ namespace CapaPresentacion
                     
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return;
             }

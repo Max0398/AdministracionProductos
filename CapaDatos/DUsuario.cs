@@ -8,16 +8,15 @@ namespace CapaDatos
 {
     public class DUsuario
     {
-        SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["Conexion"].ConnectionString);
-
-
         public bool validarUsuario(string usuario, string contrasenia)
         {
             bool esValido = false;
 
             try
             {
-                using (conexion) 
+                string cadenaConexion = ConfigurationManager.ConnectionStrings["Conexion"].ConnectionString;
+
+                using (SqlConnection conexion = new SqlConnection(cadenaConexion))
                 {
                     using (SqlCommand command = new SqlCommand("sp_ValidarUsuario", conexion))
                     {
@@ -35,47 +34,38 @@ namespace CapaDatos
             {
                 Console.WriteLine($"Error en la conexión: {ex.Message}");
             }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
-            }
 
             return esValido;
+
         }
 
         public void registroUsuario(Usuario usuario)
         {
             try
             {
-                using (SqlCommand cmd = new SqlCommand("SP_RegistrarUsuario", conexion))
+                string cadenaConexion = ConfigurationManager.ConnectionStrings["Conexion"].ConnectionString;
+
+                using (SqlConnection conexion = new SqlConnection(cadenaConexion))
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    using (SqlCommand cmd = new SqlCommand("SP_RegistrarUsuario", conexion))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
 
-                    conexion.Open();
+                        conexion.Open();
+                        cmd.Parameters.AddWithValue("@NombreUsuario", usuario.NombreUsuario);
+                        cmd.Parameters.AddWithValue("@Contrasenia", usuario.Contrasenia);
+                        cmd.Parameters.AddWithValue("@Nombre", usuario.Nombre);
+                        cmd.Parameters.AddWithValue("@Apellido", usuario.Apellido);
+                        cmd.Parameters.AddWithValue("@Correo", usuario.Correo);
+                        cmd.Parameters.AddWithValue("@Telefono", usuario.Telefono);
 
-                    
-                    cmd.Parameters.AddWithValue("@NombreUsuario", usuario.NombreUsuario);
-                    cmd.Parameters.AddWithValue("@Contrasenia", usuario.Contrasenia); // Se agregara el hash en la base de datos de forma Automatica
-                    cmd.Parameters.AddWithValue("@Nombre", usuario.Nombre);
-                    cmd.Parameters.AddWithValue("@Apellido", usuario.Apellido);
-                    cmd.Parameters.AddWithValue("@Correo", usuario.Correo);
-                    cmd.Parameters.AddWithValue("@Telefono", usuario.Telefono);
-                    cmd.ExecuteNonQuery();
+                        cmd.ExecuteNonQuery();
+                    }
                 }
             }
             catch (Exception err)
             {
                 Console.WriteLine($"Error de Registro: {err.Message}");
-            }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
             }
         }
 
@@ -85,7 +75,9 @@ namespace CapaDatos
 
             try
             {
-                using (conexion)
+                string cadenaConexion = ConfigurationManager.ConnectionStrings["Conexion"].ConnectionString;
+
+                using (SqlConnection conexion = new SqlConnection(cadenaConexion))
                 {
                     using (SqlCommand command = new SqlCommand("sp_VerificarUsuarioExiste", conexion))
                     {
@@ -101,13 +93,6 @@ namespace CapaDatos
             catch (Exception ex)
             {
                 Console.WriteLine($"Error en la conexión: {ex.Message}");
-            }
-            finally
-            {
-                if (conexion.State == ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
             }
 
             return esValido;

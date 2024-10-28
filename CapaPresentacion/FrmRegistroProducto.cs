@@ -23,6 +23,11 @@ namespace CapaPresentacion
         {
             if (editar == false)
             {
+                if(txtCodigo.Text == "" || txtNombre.Text=="" || txtProveedor.Text== "")
+                {
+                    MessageBox.Show("Se Encontraron Campos Vacios","Rellenar campos",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    return;
+                }
                 try
                 {
                     producto.Codigo = txtCodigo.Text;

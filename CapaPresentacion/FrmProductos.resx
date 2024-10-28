@@ -164,16 +164,13 @@
   <data name="AgregarOpcion.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        qgAAAKoBBgpwTwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADBSURBVEhL5ZVB
+        qQAAAKkBq7NRIgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADBSURBVEhL5ZVB
         CsIwFERzkHZZegZpL6pHEHFRPYZXKVjBhd3ovJCACELSRChm4EFS0pn8bMY41eIgbuKZCB5H0QorzEcx
         i0FsEzkJvPCshL35Q2zYZFInCNmzYSRSc+ssJha8G6PlFp54FxawE6FnFwVcHCEqJIA396Zwd7x/+/bv
         OgI+5U1DVGgA52LORgfE6I8Cflk4VxYUNPVGzeVSL/Ckjm37+9JnEkZLgZv70m+EFe1PQdOhvFsKeHBz
         mRvzAl0kob1DpJKlAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="EditarActual.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="EditarActual.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
