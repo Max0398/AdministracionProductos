@@ -96,7 +96,7 @@
             // Opciones
             // 
             this.Opciones.HeaderText = "Opciones";
-            this.Opciones.Image = global::CapaPresentacion.Properties.Resources.opcion_de_lista;
+            this.Opciones.Image = ((System.Drawing.Image)(resources.GetObject("Opciones.Image")));
             this.Opciones.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Opciones.Name = "Opciones";
             this.Opciones.ReadOnly = true;
@@ -318,11 +318,11 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
         private System.Windows.Forms.DataGridViewImageColumn EditarActual;
+        private System.Windows.Forms.CheckBox cbxCargarProductoActivo;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
         private System.Windows.Forms.DataGridViewImageColumn Opciones;
         private System.Windows.Forms.DataGridViewImageColumn AgregarOpcion;
-        private System.Windows.Forms.CheckBox cbxCargarProductoActivo;
     }
 }
 

@@ -193,7 +193,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmRegistroProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmRegistroProducto";
+            this.Text = "Registrar Producto";
             this.PanelRegistro.ResumeLayout(false);
             this.PanelRegistro.PerformLayout();
             this.ResumeLayout(false);

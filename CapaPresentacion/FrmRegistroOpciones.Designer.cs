@@ -118,7 +118,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmRegistroOpciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RegistroOpciones";
+            this.Text = "Registrar Opcion";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

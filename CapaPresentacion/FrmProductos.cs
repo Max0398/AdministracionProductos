@@ -138,10 +138,19 @@ namespace CapaPresentacion
                 // Funcionalidad para Eliminar
                 else if (e.ColumnIndex == eliminarColumnIndex)
                 {
-                    int eliminar = Convert.ToInt32(dgvProductos.CurrentRow.Cells["ProductoID"].Value.ToString());
-                    nProducto.elimacionLogicaProducto(eliminar);
-                    MessageBox.Show("Eliminado Correctamente", "Operación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    listarProductos();
+                    // Muestra un mensaje de confirmación antes de proceder a elimina
+                    var confirmarResultado = MessageBox.Show("¿Estás seguro que desea eliminar este producto?",
+                                                         "Confirmar Eliminación",
+                                                         MessageBoxButtons.YesNo,
+                                                         MessageBoxIcon.Warning);
+                    
+                    if (confirmarResultado == DialogResult.Yes)
+                    {
+                        int eliminar = Convert.ToInt32(dgvProductos.CurrentRow.Cells["ProductoID"].Value.ToString());
+                        nProducto.elimacionLogicaProducto(eliminar);
+                        MessageBox.Show("Eliminado Correctamente", "Operación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        listarProductos();
+                    }
                 }
                 // Funcionalidad para Opciones
                 else if (e.ColumnIndex == opcionesColumnIndex)
