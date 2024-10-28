@@ -138,5 +138,9 @@
   <ItemGroup>
     <None Include="Resources\opcion-de-lista.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlArchivos\AdministracionProductosDB.sql" />
+    <Content Include="SqlArchivos\AdministracionProductosProcedimientos.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
